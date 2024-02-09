@@ -114,6 +114,8 @@ def IP2domain(base):
 
 
 def checkPortTcp(target, port):
+    """"""
+    
     sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sk.settimeout(10)
     try:
