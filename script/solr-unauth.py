@@ -18,6 +18,8 @@ from plugin.urlparser import iterate_path
 
 
 def poc(target):
+    """"""
+    
     base_url = target if "://" in target else 'http://' + target
     for each in iterate_path(base_url):
         try:

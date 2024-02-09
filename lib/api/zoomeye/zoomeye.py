@@ -9,6 +9,8 @@ import getpass
 
 class ZoomEye(object):
     def __init__(self, username=None, password=None):
+        """"""
+        
         self.username = username
         self.password = password
 
@@ -91,18 +93,24 @@ class ZoomEye(object):
 
 
 def show_site_ip(data):
+    """"""
+    
     if data:
         for i in data:
             print(i.get('site'), i.get('ip'))
 
 
 def show_ip_port(data):
+    """"""
+    
     if data:
         for i in data:
             print(i.get('ip'), i.get('portinfo').get('port'))
 
 
 def zoomeye_api_test():
+    """"""
+    
     zoomeye = ZoomEye()
     zoomeye.username = raw_input('ZoomEye Username: ')
     zoomeye.password = getpass.getpass(prompt='ZoomEye Password: ')

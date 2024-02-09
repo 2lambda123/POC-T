@@ -35,10 +35,14 @@ skip = 0
 
 
 def info():
+    """"""
+    
     return __doc__
 
 
 def BingSearch(query):
+    """"""
+    
     payload = {}
     payload['$top'] = top
     payload['$skip'] = skip
@@ -61,6 +65,8 @@ def BingSearch(query):
 
 
 def poc(ip):
+    """"""
+    
     domains = set()
     if ENABLE_API:
         ans_obj = BingSearch("ip:" + ip)
