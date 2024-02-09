@@ -54,7 +54,7 @@ def redirectURL(url):
 
     try:
         url = url if '://' in url else 'http://' + url
-        r = requests.get(url, allow_redirects=False)
+        r = requests.get(url, allow_redirects=False, timeout=60)
         return r.headers.get('location') if r.status_code == 302 else url
     except Exception:
         raise ToolkitPluginException('Get redirect URL failed, plsase check your PoC code.')
@@ -96,7 +96,7 @@ def IP2domain(base):
         ip = base.split(':')[0] if ':' in base else base
         q = "https://www.bing.com/search?q=ip%3A" + ip
         c = requests.get(q, headers={
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0'}).content
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0'}, timeout=60).content
         p = re.compile(r'<cite>(.*?)</cite>')
         l = re.findall(p, c)
         for each in l:
